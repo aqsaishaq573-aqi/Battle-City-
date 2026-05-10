@@ -69,14 +69,22 @@ STATS={
 # ── Level configs ─────────────────────────────────────────────
 LEVELS={
     1:dict(name="Brick Maze",
-           # Spec: 7x Basic first, then 5x Fast after 10 kills.
-           # Pool of 20: 15 basic + 5 fast (fast held until threshold)
-           pool=['basic']*15+['fast']*5,
-           fast_unlock_kills=10,
+           # FIX: Spec says "First 7 kills are Basic Tanks, Final 5 are Fast Tanks."
+           # Pool of 20 total: 7 Basic first, then 13 Fast fill the remainder.
+           # fast_unlock_kills=7 ensures no Fast tank spawns until 7 Basics are killed.
+           # After the 7th kill the lock lifts and Fast tanks begin spawning.
+           pool=['basic']*7+['fast']*13,
+           fast_unlock_kills=7,
            max_active=3,
            eagle_rings=2),
     2:dict(name="Steel Fortress",
-           # Spec ratio 4 Fast : 3 Armor : 2 Power scaled to 20
+           # FIX: Spec says exactly "4x Fast + 3x Armor + 2x Power".
+           # Scaled to pool of 20 while preserving the 4:3:2 ratio:
+           #   4+3+2 = 9 units  →  multiply by ~2.22 to reach 20
+           #   Fast : 4×2 = 8 + 1 remainder  = 9
+           #   Armor: 3×2 = 6 + 1 remainder  = 7
+           #   Power: 2×2 = 4               = 4
+           #   Total: 9+7+4 = 20  ✓  ratio stays closest to 4:3:2
            pool=['fast']*9+['armor']*7+['power']*4,
            fast_unlock_kills=None,
            max_active=3,
