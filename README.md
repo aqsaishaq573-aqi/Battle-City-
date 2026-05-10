@@ -1,4 +1,4 @@
-# 🎮 Battle City — AI Lab Project
+# Battle City 
 
 A Python/Pygame recreation of the classic **Battle City** (NES, 1985) featuring multiple AI algorithms implemented for different enemy tank behaviours.
 
@@ -7,7 +7,7 @@ A Python/Pygame recreation of the classic **Battle City** (NES, 1985) featuring 
 
 ---
 
-## 📸 Gameplay Overview
+## Gameplay Overview
 
 Three progressively harder levels, each showcasing a distinct AI technique:
 
@@ -19,7 +19,7 @@ Three progressively harder levels, each showcasing a distinct AI technique:
 
 ---
 
-## 🧠 AI Algorithms Implemented
+## AI Algorithms Implemented
 
 ### 1. Search (`modules/search.py`)
 - **BFS** — BasicTank navigates toward the Eagle using breadth-first search.
@@ -41,7 +41,7 @@ Three progressively harder levels, each showcasing a distinct AI technique:
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 battle_city/
@@ -61,7 +61,7 @@ battle_city/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -87,7 +87,7 @@ python main.py
 
 ---
 
-## 🕹️ Controls
+## Controls
 
 | Key | Action |
 |-----|--------|
@@ -101,7 +101,7 @@ python main.py
 
 ---
 
-## 🏟️ Game Rules
+## Game Rules
 
 - **Objective:** Destroy all enemy tanks without losing the Eagle (base).
 - **Player lives:** 10. Losing all lives → Game Over.
@@ -121,7 +121,7 @@ python main.py
 
 ---
 
-## ⚙️ Level Details
+## Level Details
 
 ### Level 1 — Brick Maze
 - Pool of 20 enemies: 7 Basic → 13 Fast (Fast tanks locked until 7 kills).
@@ -140,7 +140,7 @@ python main.py
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 All tunable values live in `constants.py`:
 
@@ -156,7 +156,7 @@ FAIRNESS     = 10   # min Manhattan distance: spawn → player
 
 ---
 
-## 📐 Architecture Notes
+## Architecture Notes
 
 - **No circular imports:** `renderer.py` imports from `constants.py` only; `game.py` imports renderer inline where needed.
 - **CSP map** returns `(grid, eagle_pos)` tuple — Level unpacks both for correct eagle placement per level.
@@ -164,6 +164,6 @@ FAIRNESS     = 10   # min Manhattan distance: spawn → player
 
 ---
 
-## 📄 License
+## License
 
 This project was developed for academic purposes (AL-2002 AI Lab). Feel free to study and learn from the code.
